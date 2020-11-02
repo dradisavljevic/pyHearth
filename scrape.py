@@ -12,7 +12,10 @@ def main():
     deck_list = {}
 
     for season_number in range(1, utility.calculate_season() + 1):
-        weburl = cfg.SCRAPE_URL + str(season_number)
+        if season_number == 74: #For some reason, data for season 74 is under this type of URL
+            weburl = cfg.SCRAPE_URL + str(season_number) + '-constructed-seasons'
+        else:
+            weburl = cfg.SCRAPE_URL + str(season_number)
         req = urllib.request.Request(weburl, headers={'User-Agent': 'Mozilla/5.0'})
 
         page = urllib.request.urlopen(req).read()
@@ -27,15 +30,17 @@ def main():
             deck_list[link['href']] = deck_title
 
         pages = soup.find('span', {'class': ['page-link', 'pages']})
-        page_text = pages.text.strip().split(' ')
-        last_page = page_text[-1]
+        if pages is not None:
+            page_text = pages.text.strip().split(' ')
+            last_page = page_text[-1]
+        else:
+            last_page = 1
 
         utility.printProgressBar(1, int(last_page), prefix = 'Progress:', suffix = 'Complete', length = 50)
 
         for i in range(2, int(last_page) + 1):
-            weburl = cfg.SCRAPE_URL + str(season_number) + '/page/' + str(i)
-            weburl = cfg.SCRAPE_URL + str(season_number)
-            req = urllib.request.Request(weburl, headers={'User-Agent': 'Mozilla/5.0'})
+            pageurl = weburl + '/page/' + str(i)
+            req = urllib.request.Request(pageurl, headers={'User-Agent': 'Mozilla/5.0'})
 
             page = urllib.request.urlopen(req).read()
             soup = bs4.BeautifulSoup(page, 'html.parser')

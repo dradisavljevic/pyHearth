@@ -8,7 +8,7 @@ FIRST_SEASON_YEAR = 2014
 
 # URLs to Hearthstone Top Decks and HearthstoneJSON, respectively
 SCRAPE_URL = 'https://www.hearthstonetopdecks.com/deck-category/constructed-seasons/season-'
-CARDS_API_URL = 'https://api.hearthstonejson.com/v1/45932/enUS/cards.json'
+CARDS_API_URL = 'https://api.hearthstonejson.com/v1/63160/enUS/cards.json'
 
 # Column titles for .CSV files
 DECKS_TITLE = ['SEASON', 'NAME', 'CLASS', 'CODE', 'URL', 'DUST', 'RATING', 'UPLOADER', 'DATE', 'FORMAT', 'TYPE', 'STYLE']
@@ -24,7 +24,7 @@ CARD_SETS = {
   'DEMON_HUNTER_INITIATE': 'Demon Hunter Initiate',
   'DALARAN': 'Rise of Shadows',
   'ULDUM': 'Saviors of Uldum',
-  'YEAR_OF_THE_DRAGON': 'Descent of Dragons',
+  'YEAR_OF_THE_DRAGON': 'Galakrond\'s Awakening',
   'DRAGONS': 'Descent of Dragons',
   'BLACK_TEMPLE': 'Ashes of Outland',
   'HOF': 'Hall of Fame',
@@ -41,7 +41,8 @@ CARD_SETS = {
   'LOOTAPALOOZA': 'Kobolds & Catacombs',
   'GILNEAS': 'The Witchwood',
   'BOOMSDAY': 'The Boomsday Project',
-  'TROLL': 'Rastakhan\'s Rumble'
+  'TROLL': 'Rastakhan\'s Rumble',
+  'SCHOLOMANCE': 'Scholomance Academy'
 }
 
 # Data used to identify meta stats when scraping decks from the website
