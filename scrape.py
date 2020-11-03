@@ -67,14 +67,27 @@ def decks_to_csv(deck_list):
     for url, name in deck_list.items():
         utility.printProgressBar(i, len(deck_list), prefix = 'Progress:', suffix = 'Complete', decimals = 2, length = 50)
         i = i + 1
-        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        try:
+            req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
 
-        page = urllib.request.urlopen(req).read()
-        soup = bs4.BeautifulSoup(page, 'html.parser')
-        deck_code = soup.find('button', {'id': 'deck-code'})['data-deck-code']
-        rating = soup.find('div', {'class': 'rating-scores'}).text.strip().replace('+', '')
-        date = soup.find(True, {'class': ['entry-date', 'published']}).text.strip()
-        uploader = soup.find(True, {'class': ['author', 'vcard']}).text.strip()
+            page = urllib.request.urlopen(req).read()
+            soup = bs4.BeautifulSoup(page, 'html.parser')
+            deck_code = soup.find('button', {'id': 'deck-code'})['data-deck-code']
+        except:
+            continue
+
+        try:
+            rating = soup.find('div', {'class': 'rating-scores'}).text.strip().replace('+', '')
+        except:
+            rating = 0
+        try:
+            date = soup.find(True, {'class': ['entry-date', 'published']}).text.strip()
+        except:
+            date = 'Unknown'
+        try:
+            uploader = soup.find(True, {'class': ['author', 'vcard']}).text.strip()
+        except:
+            uploader = 'Unknown'
 
         deck_meta_stats = soup.find('div', {'class': 'deck-meta'})
         meta_links = deck_meta_stats.find_all('a')

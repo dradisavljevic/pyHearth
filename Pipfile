@@ -10,6 +10,7 @@ hearthstone = "*"
 requests = "*"
 bs4 = "*"
 pandas = "*"
+multiprocess = "*"
 
 [requires]
 python_version = "3.7"

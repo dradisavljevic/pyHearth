@@ -42,7 +42,8 @@ CARD_SETS = {
   'GILNEAS': 'The Witchwood',
   'BOOMSDAY': 'The Boomsday Project',
   'TROLL': 'Rastakhan\'s Rumble',
-  'SCHOLOMANCE': 'Scholomance Academy'
+  'SCHOLOMANCE': 'Scholomance Academy',
+  'DARKMOON_FAIRE': 'Darkmoon Faire'
 }
 
 # Data used to identify meta stats when scraping decks from the website
