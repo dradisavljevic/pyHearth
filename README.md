@@ -27,3 +27,20 @@ Example of combining these two datasets is located in the decklists.txt which co
 * [Pandas](https://pandas.pydata.org/) - Library used for data manipulation as dataframe objects.
 * [Requests](https://requests.readthedocs.io/en/master/) - HTTP library used to communicate with the card api.
 * [Hearthstone](https://github.com/hearthsim/python-hearthstone) - Hearthstone library used for parsing deck codes.
+
+## Notes
+
+When running code on MacOS, since the security measure added in MacOS High Sierra prevents multithreading it is necessary to add an environment variable in order to be able to run this code in multiple threads. This is done by calling:
+
+
+```
+nano .bash_profile
+```
+
+And then adding the following line to the end of file:
+
+```
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+```
+
+After this, rerun terminal and the code will execute.

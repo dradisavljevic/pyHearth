@@ -9,6 +9,7 @@ FIRST_SEASON_YEAR = 2014
 # URLs to Hearthstone Top Decks and HearthstoneJSON, respectively
 SCRAPE_URL = 'https://www.hearthstonetopdecks.com/deck-category/constructed-seasons/season-'
 CARDS_API_URL = 'https://api.hearthstonejson.com/v1/63160/enUS/cards.json'
+INVALID_URLS = ['https://www.hearthstonetopdecks.com/decks/%e3%83%9e%e3%82%a4%e3%83%9e%e3%82%a4s-holy-wrath-paladin-hct-asia-pacific-winter-playoffs-2018/', 'https://www.hearthstonetopdecks.com/decks/villains-even-warlock-hct-2018-americas-winter-playoffs/', 'https://www.hearthstonetopdecks.com/decks/plantzs-odd-warrior-hct-2018-americas-winter-playoffs/']
 
 # Column titles for .CSV files
 DECKS_TITLE = ['SEASON', 'NAME', 'CLASS', 'CODE', 'URL', 'DUST', 'RATING', 'UPLOADER', 'DATE', 'FORMAT', 'TYPE', 'STYLE']
